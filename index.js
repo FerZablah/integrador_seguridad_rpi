@@ -6,6 +6,10 @@ const GPS = require("gps");
 const p = require("phin");
 
 let pressCount = 0;
+let coordinates = {
+    lat: "25.661863",
+    lon: "-100.420751"
+}
 const callSOS = async () => {
     //Llamada post a servidor
     p({
@@ -13,8 +17,8 @@ const callSOS = async () => {
         method: 'POST',
         data: {
             uidDiapositivo: "abc",
-            lat: "25.661863",
-            lon: "-100.420751"
+            lat: coordinates.lat,
+            lon: coordinates.lon
         }
     }).then((res) => {
         //Imprimir respuesta de servidor
@@ -61,9 +65,10 @@ parser.on("data", data => {
 });
 //Escuchar nueva informacion recibida al objeto de gps
 gps.on("data", async data => {
-    //console.log(data);
     if(data.type == "GGA") {
         if(data.quality != null) {
+            coordinates.lat = data.lat;
+            coordinates.lon = data.lon;
             console.log(" [" + data.lat + ", " + data.lon + "]");
         } else {
             console.log("no gps fix available");

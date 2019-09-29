@@ -22,7 +22,7 @@ const callSOS = async () => {
         }
     }).then((res) => {
         //Imprimir respuesta de servidor
-        console.log("Server response:", res.data, res.statusCode);
+        console.log("Server response:", 'data: ' + res.data,'code: ' + res.statusCode);
     }).catch((e) => {
         //Imprimir error de llamada
         console.log("Request error", e);
@@ -39,6 +39,9 @@ gpio.on('change', async (channel, value) => {
         //Si son dos pulsos llamar a funcion del servidor
         if(pressCount == 2){
             callSOS();
+            setInterval(() => {
+                callSOS();
+            }, 10000);
         }
         //Reiniciar contador despues de dos segundos
         setTimeout(() => {

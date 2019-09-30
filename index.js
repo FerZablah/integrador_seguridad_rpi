@@ -12,11 +12,11 @@ let coordinates = {
 }
 const callSOS = async () => {
     //Llamada post a servidor
+    console.log("Dos toques detectados, Enviando coordenadas lat: " +coordinates.lat + " lon: " + coordinates.lon );
     p({
         url: 'https://seguridad-integrador.herokuapp.com/sos',
         method: 'POST',
         data: {
-            uidDiapositivo: "abc",
             lat: coordinates.lat,
             lon: coordinates.lon
         }

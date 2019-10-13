@@ -17,8 +17,8 @@ const callSOS = async () => {
         url: 'https://seguridad-integrador.herokuapp.com/sos',
         method: 'POST',
         data: {
-            lat: coordinates.lat,
-            lon: coordinates.lon
+            lat: coordinates.lat.toString(),
+            lon: coordinates.lon.toString()
         }
     }).then((res) => {
         //Imprimir respuesta de servidor

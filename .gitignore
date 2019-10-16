@@ -62,3 +62,5 @@ typings/
 
 firebase-key.json
 gcloud-key.json
+
+.wav

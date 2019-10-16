@@ -8,6 +8,13 @@ const bucket = storage.bucket('integrador-seguridad.appspot.com');
 //-
 // Upload a file from a local path.
 //-
-bucket.upload('./1570988697149.wav', (err, file, apiResponse) => {
-  console.log(err, apiResponse);
-});
+const upload = (filePath) => {
+  return new Promise((res, rej) => {    
+    bucket.upload(filePath, (err, file, apiResponse) => {
+      console.log(apiResponse.name);
+      res(apiResponse.name);
+    });
+  });
+}
+
+module.exports = upload;

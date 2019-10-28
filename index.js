@@ -86,7 +86,7 @@ gpio.on('change', async (channel, value) => {
             callSOS().then(() => {
                 recordAudio();
             });
-            setInterval(() => {
+           setInterval(() => {
                 callSOS();
             }, 10000);
         }

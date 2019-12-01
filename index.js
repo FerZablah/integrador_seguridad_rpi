@@ -6,6 +6,8 @@ const GPS = require("gps");
 const p = require("phin");
 const upload = require("./uploadAudio.js");
 const record = require("./record.js");
+const rsn = require('raspi-serial-number');
+const serialNumber = rsn.getSerialNumberSync();
 let pressCount = 0;
 let coordinates = {
     lat: "25.661863",
@@ -49,7 +51,7 @@ const callSOS = async () => {
     const postObj = {
         lat: coordinates.lat,
         lon: coordinates.lon,
-        idUsuario: '123'
+        idDispositivo: serialNumber
     };
     //Si tenemos llave del evento la mandamos
     if (idEvento !== -1)

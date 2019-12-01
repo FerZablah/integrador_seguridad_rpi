@@ -8,9 +8,8 @@ var descriptor = new Descriptor({
 });
 
 const handleWrite = (data, offset, withoutResponse, callback) => {
-    /*let buff = Buffer.from(data, 'base64');  
-    let text = buff.toString('utf-8');
-    console.log(text);*/
+    
+    console.log(data);
 }
 
 var Characteristic = bleno.Characteristic;

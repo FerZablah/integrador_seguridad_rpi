@@ -4,7 +4,7 @@ const bleno = require('bleno');
 var Descriptor = bleno.Descriptor;
 var descriptor = new Descriptor({
     uuid: '2901',
-    value: 'no se que es value' // static value, must be of type Buffer or string if set
+    value: 'value' // static value, must be of type Buffer or string if set
 });
 
 const handleWrite = (data, offset, withoutResponse, callback) => {
